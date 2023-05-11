@@ -24,7 +24,7 @@ public class Client {
         String userAgent = "GroupName"; // confused as to what this is supposed to be
 
         Object subtractResult = makeXmlRpcRequest(httpClient, server, port, userAgent, "subtract", 12, 6);
-        System.out.println("subtract(12, a) = " + subtractResult);
+        System.out.println("subtract(12, 6) = " + subtractResult);
 
         Object multiplyResult = makeXmlRpcRequest(httpClient, server, port, userAgent, "multiply", 3, 4);
         System.out.println("multiply(3, 4) = " + multiplyResult);

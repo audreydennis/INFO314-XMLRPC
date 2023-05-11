@@ -113,7 +113,6 @@ public class App {
             startIndex += 4; 
             endIndex = xmlRequest.indexOf("</i4>", startIndex);
             
-
             if (endIndex != -1) {
                 String value = xmlRequest.substring(startIndex, endIndex);
 
@@ -128,7 +127,6 @@ public class App {
             } else {
                 break; 
             }
-            
         }
         return i4Values;
     }
