@@ -45,7 +45,7 @@ public class App {
             call.name = methodName; 
 
             List < Object > i4Values = geti4(xmlRequest);
-            if (i4Values.stream().anyMatch(arg -> !(arg instanceof Integer))) {
+            if (i4Values== null) {
                 response.type("text/xml");
                 return buildXmlFaultResponse(3, "illegal argument type");
             }else{
@@ -101,6 +101,7 @@ public class App {
         while ((startIndex = xmlRequest.indexOf("<i4>", startIndex)) != -1) {
             startIndex += 4; 
             endIndex = xmlRequest.indexOf("</i4>", startIndex);
+            
 
             if (endIndex != -1) {
                 String value = xmlRequest.substring(startIndex, endIndex);
@@ -116,6 +117,7 @@ public class App {
             } else {
                 break; 
             }
+            
         }
         return i4Values;
     }

@@ -24,13 +24,13 @@ public class Client {
         String userAgent = "GroupName"; // confused as to what this is supposed to be
 
         Object subtractResult = makeXmlRpcRequest(httpClient, server, port, userAgent, "subtract", 12, 6);
-        System.out.println("subtract(12, 6) = " + subtractResult);
+        System.out.println("subtract(12, a) = " + subtractResult);
 
         Object multiplyResult = makeXmlRpcRequest(httpClient, server, port, userAgent, "multiply", 3, 4);
         System.out.println("multiply(3, 4) = " + multiplyResult);
 
-        Object divideResult = makeXmlRpcRequest(httpClient, server, port, userAgent, "divide", 10, 2);
-        System.out.println("divide(10, 2) = " + divideResult);
+        Object divideResult = makeXmlRpcRequest(httpClient, server, port, userAgent, "divide", 10, 0);
+        System.out.println("divide(10, 0) = " + divideResult);
 
         Object moduloResult = makeXmlRpcRequest(httpClient, server, port, userAgent, "modulo", 10, 5);
         System.out.println("modulo(10, 5) = " + moduloResult);
@@ -60,8 +60,8 @@ public class Client {
         HttpResponse<String> response = httpClient.send(request, BodyHandlers.ofString());
 
         String responseXml=response.body();
-        System.out.println("Response XML");
-        checkingRequest(responseXml);
+        //System.out.println("Response XML");
+        //checkingRequest(responseXml);
 
         Object result = parseXmlRpcResponse(response.body());
         return result;
