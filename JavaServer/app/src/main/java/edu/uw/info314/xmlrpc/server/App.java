@@ -22,11 +22,6 @@ public class App {
 
         post("/RPC", (request, response) -> {
 
-            if (!request.requestMethod().equals("POST")) {
-                response.status(405);
-                return "Method Not Supported"; 
-            }
-
             if (!request.uri().equals("/RPC")) {
                 response.status(404);
                 return "Not Found";
@@ -90,6 +85,22 @@ public class App {
             return xmlResponse;
             }
         });
+
+        put("/RPC", (request, response) -> {
+            response.status(405);
+            return "Method Not Allowed";
+        });
+
+        get("/RPC", (request, response) -> {
+            response.status(405);
+            return "Method Not Allowed";
+        });
+
+        delete("/RPC", (request, response) -> {
+            response.status(405);
+            return "Method Not Allowed";
+        });
+
     }
 
     public static List < Object > geti4(String xmlRequest) {
